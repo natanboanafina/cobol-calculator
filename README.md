@@ -1,2 +1,2 @@
 # cobol-calculator
-A simple calculator to learn some Cobol Windows principles.
+A simple calculator to practice some Cobol Windows principles.
