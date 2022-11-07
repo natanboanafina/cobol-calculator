@@ -48,4 +48,3 @@
            MOVE "OUTUBRO  " TO WRK-FULLMONTH(10).
            MOVE "NOVEMBRO " TO WRK-FULLMONTH(11).
            MOVE "DEZEMBRO " TO WRK-FULLMONTH(12).
-       0300-END                        SECTION.
