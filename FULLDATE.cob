@@ -11,7 +11,8 @@
        WORKING-STORAGE                 SECTION.
 
        COPY "#DATEVAR".
-       77  WRK-FULLMONTH   PIC X(09) OCCURS 12 TIMES.
+       01  WRK-MONTHS.
+           05  WRK-FULLMONTH   PIC X(09) OCCURS 12 TIMES.
        LINKAGE                         SECTION.
        01  LNK-SEC.
            05 LNK-DATE     PIC X(30).
@@ -25,7 +26,7 @@
            ACCEPT WRK-DATE FROM DATE YYYYMMDD.
 
        0200-PROCESS                    SECTION.
-           PERFORM 0210-FULLMONTH
+           PERFORM 0210-FULL-MONTH.
 
            STRING WRK-DAY                   DELIMITED BY SIZE
                   " DE "                    DELIMITED BY SIZE
@@ -34,8 +35,7 @@
                   WRK-YEAR                  DELIMITED BY SIZE
                   INTO LNK-DATE.
 
-           DISPLAY LNK-DATE.
-       0210-FULLMONTH                 SECTION.
+       0210-FULL-MONTH                 SECTION.
            MOVE "JANEIRO  " TO WRK-FULLMONTH(1).
            MOVE "FEVEREIRO" TO WRK-FULLMONTH(2).
            MOVE "MARCO    " TO WRK-FULLMONTH(3).
