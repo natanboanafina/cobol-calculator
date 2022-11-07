@@ -13,6 +13,7 @@
        DATA                            DIVISION.
        WORKING-STORAGE                 SECTION.
        COPY "#DATEVAR".
+       77  WRK-EXT-DATE        PIC X(30).
 
        PROCEDURE                       DIVISION.
        0001-MAIN                       SECTION.
@@ -21,7 +22,8 @@
            PERFORM 0300-END.
            STOP RUN.
        0100-INITIALIZE                 SECTION.
-
+           CALL "FULLDATE" USING WRK-EXT-DATE.
+           DISPLAY WRK-EXT-DATE.
 
        0200-PROCESS                    SECTION.
            CONTINUE.
