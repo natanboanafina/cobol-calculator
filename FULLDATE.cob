@@ -1,8 +1,8 @@
        IDENTIFICATION                  DIVISION.
        PROGRAM-ID.FULLDATE.
       *=================================================================
-      *    AUTHOR: NATAN BOANAFINA
-      *    DATE: 07-11-2022
+      *    AUTHOR:  NATAN BOANAFINA
+      *    DATE:    07-11-2022
       *    PURPOSE: TREATING DATE IN FULL.
       *=================================================================
        ENVIRONMENT                     DIVISION.
