@@ -15,6 +15,10 @@
        COPY "#DATEVAR".
        77  WRK-EXT-DATE        PIC X(30).
        77  WRK-ADDING-VAR      PIC 9(10)V99.
+       77  WRK-SUB-VAR         PIC 9(10)V99.
+       77  WRK-MULT-VAR        PIC 9(10)V99.
+       77  WRK-DIVIDE-VAR      PIC 9(10)V99.
+       77  WRK-SIGNAL          PIC X(01) VALUE SPACES.
        PROCEDURE                       DIVISION.
        0001-MAIN                       SECTION.
 
@@ -27,9 +31,22 @@
            CALL "FULLDATE" USING WRK-EXT-DATE.
            DISPLAY WRK-EXT-DATE.
        0120-INIT-SUM.
-           CALL "ADDING"   USING WRK-ADDING-VAR.
 
        0200-PROCESS                    SECTION.
-           CONTINUE.
+           DISPLAY "ESCOLHA UMA OPERACAO (+, -, /, *): "
+           ACCEPT WRK-SIGNAL.
+
+           EVALUATE TRUE
+             WHEN WRK-SIGNAL EQUAL TO "+"
+               CALL "ADDING" USING WRK-ADDING-VAR
+             WHEN WRK-SIGNAL EQUAL TO "-"
+               CALL "SUBTRACT" USING WRK-SUB-VAR
+             WHEN WRK-SIGNAL EQUAL TO "/"
+               CALL "DIVI" USING WRK-DIVIDE-VAR
+             WHEN WRK-SIGNAL EQUAL TO "*"
+               CALL "MULTI" USING WRK-MULT-VAR
+             WHEN OTHER
+               DISPLAY "OPERACAO INVALIDA!"
+           END-EVALUATE.
        0300-END                        SECTION.
            DISPLAY "======== END OF PROGRAM ========".
